@@ -20,9 +20,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em><fmt:parseNumber var="intValue" integerOnly="true"
-                                             type="number" value="${donationsBagsCount}" />
-            <c:out value="${intValue}"/></em>
+            <em>${bags}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -30,7 +28,7 @@
         </div>
 
         <div class="stats--item">
-            <em><c:out value="${donationsCount}" /></em>
+            <em>${supports}</em>
             <h3>Wspartych organizacji</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -89,27 +87,15 @@
 
         <ul class="help--slides-items">
             <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
+                <c:forEach items="${institutions}" var="institution" varStatus="loopCounter">
+                    <div class="col">
+                        <div class="title">Fundacja "${institution.name}"</div>
+                        <div class="subtitle">Cel i misja: ${institution.description}</div>
+                    </div>
+                    <c:if test="${loopCounter.count %2 == 0}">
+                        <li>
+                    </c:if>
+                </c:forEach>
             </li>
 
         </ul>

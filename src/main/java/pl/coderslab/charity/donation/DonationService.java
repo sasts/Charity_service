@@ -37,5 +37,13 @@ public class DonationService {
         return donationRepository.findAll();
     }
 
+    public Long allBags() {
+        return donationRepository.bagsSummary();
+    }
+
+    public Long supportedInstitutions() {
+        return donationRepository.supportedInstitutions();
+    }
+
 
 }

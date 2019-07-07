@@ -1,5 +1,6 @@
 package pl.coderslab.charity.donation;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.institution.Institution;
 
@@ -29,6 +30,7 @@ public class Donation {
 
     private String zipCode;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
     private LocalTime pickUpTime;
