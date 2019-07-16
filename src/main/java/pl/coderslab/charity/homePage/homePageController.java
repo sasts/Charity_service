@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/")
-public class homePageController {
+public class HomePageController {
 
     private final InstitutionService institutionService;
 
@@ -21,7 +21,7 @@ public class homePageController {
 
 
     @Autowired
-    public homePageController(InstitutionService institutionService, DonationService donationService) {
+    public HomePageController(InstitutionService institutionService, DonationService donationService) {
         this.institutionService = institutionService;
         this.donationService = donationService;
     }

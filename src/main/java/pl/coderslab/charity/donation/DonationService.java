@@ -38,7 +38,12 @@ public class DonationService {
     }
 
     public Long allBags() {
-        return donationRepository.bagsSummary();
+        if(donationRepository.bagsSummary() == null) {
+            return Long.valueOf(0);
+        } else {
+            return donationRepository.bagsSummary();
+        }
+
     }
 
     public Long supportedInstitutions() {
